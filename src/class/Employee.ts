@@ -45,12 +45,18 @@ function addWorker(worker: Employee) {
   return workers;
 }
 
-// worker: Employee o parâmetro deve ser do tipo/type Employee, ou seja, instância da classe Employee
+// worker: ñ é a classe Employee, é a instância do objeto
 function registerHours(worker: Employee, hours: number) {
   return worker.recordHours(hours);
 }
 
+function monthSalary(worker: Employee) {
+  return worker.calculateMonthlyPay();
+}
+
+// instanciando classe Employee
 const firstEmployee = new Employee("Henrique", "Estagiario", 50, 40);
 addWorker(firstEmployee);
 
-console.log(registerHours(firstEmployee, 10));
+// registerHours(firstEmployee, 10);
+console.log(monthSalary(firstEmployee));
