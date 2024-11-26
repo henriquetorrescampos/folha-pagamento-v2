@@ -50,6 +50,10 @@ function registerHours(worker: Employee, hours: number) {
   return worker.recordHours(hours);
 }
 
+function totalHours(worker: Employee) {
+  return worker.hoursWorked;
+}
+
 function monthSalary(worker: Employee) {
   return worker.calculateMonthlyPay();
 }
@@ -75,6 +79,21 @@ function calculateInss(worker: Employee) {
   return inss;
 }
 
+function labourReport(worker: Employee) {
+  console.log("\n------- REPORT OF WORKER ------- \n");
+
+  let total;
+
+  console.log(`ID: ${worker.id}`);
+  console.log(`Name: ${worker.name}`);
+  console.log(`Position: ${worker.position}`);
+  console.log(`Total hours worked: ${totalHours(worker)}`);
+  console.log(`Total INSS: ${calculateInss(worker)}`);
+  console.log(`Gorss salary: ${monthSalary(worker)}`);
+  console.log(`Net salary: ${monthSalary(worker) - calculateInss(worker)}`);
+  console.log("-----------------//-----------------");
+}
+
 // instanciando classe Employee
 const firstEmployee = new Employee("Henrique", "Estagiario", 50, 40);
 
@@ -85,3 +104,5 @@ registerHours(firstEmployee, 10);
 monthSalary(firstEmployee);
 
 calculateInss(firstEmployee);
+
+labourReport(firstEmployee);
