@@ -82,8 +82,6 @@ function calculateInss(worker: Employee) {
 function labourReport(worker: Employee) {
   console.log("\n------- REPORT OF WORKER ------- \n");
 
-  let total;
-
   console.log(`ID: ${worker.id}`);
   console.log(`Name: ${worker.name}`);
   console.log(`Position: ${worker.position}`);
@@ -93,6 +91,8 @@ function labourReport(worker: Employee) {
   console.log(`Net salary: ${monthSalary(worker) - calculateInss(worker)}`);
   console.log("-----------------//-----------------");
 }
+
+function managementReport(worker: Employee) {}
 
 // instanciando classe Employee
 const firstEmployee = new Employee("Henrique", "Estagiario", 50, 40);
