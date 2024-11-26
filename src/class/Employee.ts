@@ -54,9 +54,34 @@ function monthSalary(worker: Employee) {
   return worker.calculateMonthlyPay();
 }
 
+function calculateInss(worker: Employee) {
+  let totalSalary = worker.calculateMonthlyPay();
+  let inss = 0;
+
+  if (totalSalary >= 4000.04) {
+    inss = totalSalary * (14 / 100);
+  } else if (totalSalary >= 2666.69) {
+    inss = totalSalary * (12 / 100);
+  } else if (totalSalary >= 1412.01) {
+    inss = totalSalary * (9 / 100);
+  } else {
+    inss = totalSalary * (7.5 / 100);
+  }
+
+  if (inss > 908.85) {
+    inss = 908.85;
+  }
+
+  return inss;
+}
+
 // instanciando classe Employee
 const firstEmployee = new Employee("Henrique", "Estagiario", 50, 40);
+
 addWorker(firstEmployee);
 
-// registerHours(firstEmployee, 10);
-console.log(monthSalary(firstEmployee));
+registerHours(firstEmployee, 10);
+
+monthSalary(firstEmployee);
+
+calculateInss(firstEmployee);
