@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto";
 
-class Employee {
+export class Employee {
   id: string;
   name: string;
   position: string;
@@ -39,26 +39,26 @@ class Employee {
 // armazena employee instances
 const workers: Array<Employee> = [];
 
-function addWorker(worker: Employee) {
+export function addWorker(worker: Employee) {
   workers.push(worker);
 
   return workers;
 }
 
 // worker: ñ é a classe Employee, é a instância do objeto
-function registerHours(worker: Employee, hours: number) {
+export function registerHours(worker: Employee, hours: number) {
   return worker.recordHours(hours);
 }
 
-function totalHours(worker: Employee) {
+export function totalHours(worker: Employee) {
   return worker.hoursWorked;
 }
 
-function monthSalary(worker: Employee) {
+export function monthSalary(worker: Employee) {
   return worker.calculateMonthlyPay();
 }
 
-function calculateInss(worker: Employee) {
+export function calculateInss(worker: Employee) {
   let totalSalary = worker.calculateMonthlyPay();
   let inss = 0;
 
@@ -79,7 +79,7 @@ function calculateInss(worker: Employee) {
   return inss;
 }
 
-function labourReport(worker: Employee) {
+export function labourReport(worker: Employee) {
   console.log("\n------- REPORT OF WORKER ------- \n");
 
   console.log(`ID: ${worker.id}`);
@@ -92,17 +92,4 @@ function labourReport(worker: Employee) {
   console.log("-----------------//-----------------");
 }
 
-function managementReport(worker: Employee) {}
-
-// instanciando classe Employee
-const firstEmployee = new Employee("Henrique", "Estagiario", 50, 40);
-
-addWorker(firstEmployee);
-
-registerHours(firstEmployee, 10);
-
-monthSalary(firstEmployee);
-
-calculateInss(firstEmployee);
-
-labourReport(firstEmployee);
+export function managementReport(worker: Employee) {}
