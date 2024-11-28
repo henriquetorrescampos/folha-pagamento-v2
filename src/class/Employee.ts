@@ -1,4 +1,5 @@
 import { randomUUID } from "crypto";
+const prompt = require("prompt-sync")();
 
 export class Employee {
   id: string;
@@ -39,26 +40,24 @@ export class Employee {
 // armazena employee instances
 const workers: Array<Employee> = [];
 
-export function addWorker(worker: Employee) {
+export function addWorker(worker: Employee): void {
   workers.push(worker);
-
-  return workers;
 }
 
 // worker: ñ é a classe Employee, é a instância do objeto
-export function registerHours(worker: Employee, hours: number) {
+export function registerHours(worker: Employee, hours: number): number {
   return worker.recordHours(hours);
 }
 
-export function totalHours(worker: Employee) {
+export function totalHours(worker: Employee): number {
   return worker.hoursWorked;
 }
 
-export function monthSalary(worker: Employee) {
+export function monthSalary(worker: Employee): number {
   return worker.calculateMonthlyPay();
 }
 
-export function calculateInss(worker: Employee) {
+export function calculateInss(worker: Employee): number {
   let totalSalary = worker.calculateMonthlyPay();
   let inss = 0;
 
@@ -79,7 +78,7 @@ export function calculateInss(worker: Employee) {
   return inss;
 }
 
-export function labourReport(worker: Employee) {
+export function labourReport(worker: Employee): void {
   console.log("\n------- REPORT OF WORKER ------- \n");
 
   console.log(`ID: ${worker.id}`);
@@ -91,5 +90,3 @@ export function labourReport(worker: Employee) {
   console.log(`Net salary: ${monthSalary(worker) - calculateInss(worker)}`);
   console.log("-----------------//-----------------");
 }
-
-export function managementReport(worker: Employee) {}

@@ -3,7 +3,6 @@ import {
   addWorker,
   calculateInss,
   labourReport,
-  managementReport,
   monthSalary,
   registerHours,
   totalHours,
@@ -21,3 +20,5 @@ monthSalary(firstEmplyee);
 calculateInss(firstEmplyee);
 
 labourReport(firstEmplyee);
+
+totalHours(firstEmplyee);

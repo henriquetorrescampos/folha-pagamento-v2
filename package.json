@@ -16,6 +16,7 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
+    "prompt-sync": "^4.2.0",
     "uuid": "^11.0.3"
   }
 }
